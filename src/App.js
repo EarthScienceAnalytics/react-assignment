@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { connect } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import theme from './theme';
+import EarthNet from './earthnet/EarthNet';
+import Wellbore from './earthnet/Wellbore';
+import Histogram from './earthnet/Histogram';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MuiThemeProvider theme={createMuiTheme(theme)}>
+      <CssBaseline />
+      <Switch>
+        <Route path="/wellbore/" exact component={Wellbore} />
+        <Route path="/histogram/" exact component={Histogram} />
+        <Route component={EarthNet} />
+      </Switch>
+    </MuiThemeProvider>
   );
 }
 
-export default App;
+const mapStateToProps = state => ({ state });
+const mapDispatchToProps = {};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

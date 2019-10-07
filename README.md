@@ -1,68 +1,108 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Provided Libraries
 
-## Available Scripts
+The application comes with a few npm libraries pre-installed, which you can see in the `package.json` file. The highlights are:
 
-In the project directory, you can run:
+- React.js
+- Material-ui
+- Redux
+- React Router Dom
+- [Plotly ](https://plot.ly/javascript/react/)
 
-### `yarn start`
+Note: Your code should not rely on any libraries besides the ones already installed.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installation
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and [Json Server](https://github.com/typicode/json-server)
 
-### `yarn test`
+To run the project locally,
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Git clone this repository
+   `git clone https://github.com/georgesimos/react-assignment.git`
+2. Ensure you've installed Node/Npm to download the dependencies. The project uses the following versions.
+   - Node: v10.15.3
+   - Npm: 6.9.0
+3. It is recommended to use Npm for downloading all the dependencies. Yarn would do the job too. Perform the following commands inside your project folder (directory where the package.json is located)
+   `npm install` or `yarn install`
+4. Once the dependencies are downloaded, you can run the fake json server by `npm start-server`. This should run the application on port 8000.
+5. By now you should have the json server running. You can now start the react project by `npm start`.
 
-### `yarn build`
+## Part 1
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Summary
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+In this part, you will create a component named EsaList.
+You will create all the logic needed to select and deselect list items.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img src="/readme-assets/EsaList.png" width="300" />
 
-### `yarn eject`
+## Part 2
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Summary
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+In this part, you will modify the Wellbore and Histogram pages.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Wellbore Page Layout:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<img src="/readme-assets/Wellbore1.png" />
+<img src="/readme-assets/Wellbore2.png" />
+<img src="/readme-assets/Wellbore3.png" />
 
-## Learn More
+### Wellbore Page Functionality:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- A user should be able to select at least one well, one log and one formation:
+  - This should enable the SHOW PLOT button.
+  - When the SHOW PLOT button is enabled the user should be able to fetch and display the plot data for all selected wells.
+  - Plot type should be `scatter`.
+- A user should be able to navigate to Histogram page and back without losing his well,log and formation selections.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The Histogram Page Layout:
+<img src="/readme-assets/Histogram1.png" />
+<img src="/readme-assets/Histogram2.png" />
+<img src="/readme-assets/Histogram3.png" />
 
-### Code Splitting
+### Histogram Page Functionality:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+- A user should be able to select at least one well, one log and one formation:
+  - This should enable the SHOW PLOT button.
+  - When the SHOW PLOT button is enabled the user should be able to fetch and display the plot data for all selected wells.
+    - Plot type should be `histogram`.
+- A user should be able to change the Bar Mode to `stack` or `group` and the Orientation to `vertical` or `horizontal`.
+  - This should update the Plot layout.
+- A user should be able to navigate to Wellbore page and back without losing his well,log and formation selections.
 
-### Analyzing the Bundle Size
+### Technical Requirements
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- Must be a Single Page Application(SPA)
+- Data should be stored and retrieved from `Redux`
+- Plots should be implemented using [Plotly](https://plot.ly/javascript/react/)
 
-### Making a Progressive Web App
+Here is the documentation for the API (db.json):
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+<details>
 
-### Advanced Configuration
+<summary> API Documentation </summary>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+<br />
 
-### Deployment
+- GET - `http://localhost:8000/wells`
+  - Returns an array of all wells.
+- GET - `http://localhost:8000/logs`
+  - Returns an array of all logs.
+- GET - `http://localhost:8000/formations`
+  - Returns an array of all formations.
+- GET - `http://localhost:8000/plots`
+  - Returns an array of all plots.
+- GET - `http://localhost:8000/plots?wellId=1&wellId=2`
+  - Returns an array of the plots with wellId = 1 & wellId = 2.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+</details>
 
-### `yarn build` fails to minify
+<br />
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Submission
+
+**Very Important!** In order for us to evaluate your submission please make sure all your changes are committed and these commits have been pushed to your git repository.
+
+```
+git push
+```
