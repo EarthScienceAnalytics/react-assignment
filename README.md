@@ -1,6 +1,6 @@
 ## Provided Libraries
 
-The application comes with a few npm libraries pre-installed, which you can see in the `package.json` file. The highlights are:
+The application comes with a few npm libraries pre-installed, which you can see in the `package.json` file. The most important are:
 
 - React.js
 - Material-ui
@@ -33,7 +33,7 @@ To run the project locally,
 In this part, you will create a component named EsaList.
 You will create all the logic needed to select and deselect list items.
 
-<img src="/readme-assets/EsaList.png" width="300" />
+<img src="https://github.com/georgesimos/react-assignment/blob/master/readme-assets/EsaList.png" width="300" />
 
 ## Part 2
 
@@ -43,9 +43,9 @@ In this part, you will modify the Wellbore and Histogram pages.
 
 ### Wellbore Page Layout:
 
-<img src="/readme-assets/Wellbore1.png" />
-<img src="/readme-assets/Wellbore2.png" />
-<img src="/readme-assets/Wellbore3.png" />
+<img src="https://github.com/georgesimos/react-assignment/blob/master/readme-assets/Wellbore1.png" />
+<img src="https://github.com/georgesimos/react-assignment/blob/master/readme-assets/Wellbore2.png" />
+<img src="https://github.com/georgesimos/react-assignment/blob/master/readme-assets/Wellbore3.png" />
 
 ### Wellbore Page Functionality:
 
@@ -56,9 +56,9 @@ In this part, you will modify the Wellbore and Histogram pages.
 - A user should be able to navigate to Histogram page and back without losing his well,log and formation selections.
 
 The Histogram Page Layout:
-<img src="/readme-assets/Histogram1.png" />
-<img src="/readme-assets/Histogram2.png" />
-<img src="/readme-assets/Histogram3.png" />
+<img src="https://github.com/georgesimos/react-assignment/blob/master/readme-assets/Histogram1.png" />
+<img src="https://github.com/georgesimos/react-assignment/blob/master/readme-assets/Histogram2.png" />
+<img src="https://github.com/georgesimos/react-assignment/blob/master/readme-assets/Histogram3.png" />
 
 ### Histogram Page Functionality:
 
