@@ -23,7 +23,7 @@ To run the project locally,
    - Npm: 6.9.0
 3. It is recommended to use Npm for downloading all the dependencies. Yarn would do the job too. Perform the following commands inside your project folder (directory where the package.json is located)
    `npm install` or `yarn install`
-4. Once the dependencies are downloaded, you can run the fake json server by `npm start-server`. This should run the application on port 8000.
+4. Once the dependencies are downloaded, you can run the fake json server by `npm run start-server`. This should run the application on port 8000.
 5. By now you should have the json server running. You can now start the react project by `npm start`.
 
 ## Part 1
