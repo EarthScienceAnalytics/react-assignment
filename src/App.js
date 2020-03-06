@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from './theme';
-import EarthNet from './earthnet/EarthNet';
+import ExamplePage from './earthnet/ExamplePage';
 import Wellbore from './earthnet/Wellbore';
 import Histogram from './earthnet/Histogram';
 
@@ -13,9 +13,9 @@ function App() {
     <MuiThemeProvider theme={createMuiTheme(theme)}>
       <CssBaseline />
       <Switch>
+        <Route path="/" exact component={ExamplePage} />
         <Route path="/wellbore/" exact component={Wellbore} />
         <Route path="/histogram/" exact component={Histogram} />
-        <Route component={EarthNet} />
       </Switch>
     </MuiThemeProvider>
   );

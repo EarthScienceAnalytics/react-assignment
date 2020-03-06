@@ -66,7 +66,7 @@ const styles = theme => ({
 });
 const useStyles = makeStyles(styles);
 
-export default function Earthnet() {
+export default function ExamplePage() {
   const classes = useStyles();
   const [singleValue, onChangeSingle] = useState(1);
   const [multiValue, onChangeMulti] = useState([]);
