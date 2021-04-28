@@ -17,7 +17,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 To run the project locally,
 
 1. Git clone this repository
-   `git clone https://github.com/georgesimos/react-assignment.git`
+   `git clone https://github.com/EarthScienceAnalytics/react-assignment.git`
 2. Ensure you've installed Node/Npm to download the dependencies. The project uses the following versions.
    - Node: v10.15.3
    - Npm: 6.9.0

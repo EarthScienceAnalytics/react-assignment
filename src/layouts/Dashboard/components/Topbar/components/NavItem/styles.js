@@ -15,7 +15,6 @@ export default theme => ({
       color: theme.palette.text.primary
     }
   },
-
   listItemText: {
     fontWeight: 500,
     color: theme.palette.text.secondary

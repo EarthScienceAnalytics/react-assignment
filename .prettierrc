@@ -1,13 +1,14 @@
 {
-    "printWidth": 100,
-    "singleQuote": true,
-    "overrides": [
-      {
-        "files": "*.html",
-        "options": {
-          "ignore": true
-        }
+  "printWidth": 100,
+  "singleQuote": true,
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "ignore": true
       }
-    ]
-  }
-  
+    }
+  ],
+  "arrowParens": "avoid",
+  "trailingComma": "none"
+}
