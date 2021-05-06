@@ -18,9 +18,9 @@ To run the project locally,
 
 1. Git clone this repository
    `git clone https://github.com/EarthScienceAnalytics/react-assignment.git`
-2. Ensure you've installed Node/Npm to download the dependencies. The project uses the following versions.
-   - Node: v10.15.3
-   - Npm: 6.9.0
+2. Ensure you've installed node & npm to download the dependencies. The project has been tested with the following versions but should also work with later ones.
+   - node: v12.22.1
+   - npm: 7.6.2
 3. It is recommended to use Npm for downloading all the dependencies. Yarn would do the job too. Perform the following commands inside your project folder (directory where the package.json is located)
    `npm install` or `yarn install`
 4. Once the dependencies are downloaded, you can run the fake json server by `npm run start-server`. This should run the application on port 8000.
@@ -73,7 +73,7 @@ The Histogram Page Layout:
 ### Technical Requirements
 
 - Must be a Single Page Application(SPA)
-- Data should be stored and retrieved from `Redux`
+- Data should be stored and retrieved from `Redux`. The app currently provides the traditional redux boilerplate (actions, types, reducers but you are highly encouraged to use the modern approach with slices using `redux-toolkit`.
 - Plots should be implemented using [Plotly](https://plot.ly/javascript/react/)
 
 Here is the documentation for the API (db.json):
