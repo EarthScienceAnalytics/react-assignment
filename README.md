@@ -53,7 +53,7 @@ In this part, you will modify the Wellbore and Histogram pages.
   - This should enable the SHOW PLOT button.
   - When the SHOW PLOT button is enabled the user should be able to fetch and display the plot data for all selected wells.
   - Plot type should be `scatter`.
-- A user should be able to navigate to Histogram page and back without losing his well,log and formation selections.
+- A user should be able to navigate to Histogram page and back without losing his well,log and formation selections. (Same selections for both pages)
 
 The Histogram Page Layout:
 <img src="https://github.com/georgesimos/react-assignment/blob/master/readme-assets/Histogram1.png" />
@@ -68,7 +68,7 @@ The Histogram Page Layout:
     - Plot type should be `histogram`.
 - A user should be able to change the Bar Mode to `stack` or `group` and the Orientation to `vertical` or `horizontal`.
   - This should update the Plot layout.
-- A user should be able to navigate to Wellbore page and back without losing his well,log and formation selections.
+- A user should be able to navigate to Wellbore page and back without losing his well,log and formation selections. (Same selections for both pages)
 
 ### Technical Requirements
 
