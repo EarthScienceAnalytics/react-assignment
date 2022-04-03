@@ -1,13 +1,13 @@
 import * as types from '../types';
 
-const INITIAL_STATE = {};
+const initialState = {};
 
-const setAction = (state, {payload}) => ({
+const setAction = (state, { payload }) => ({
   ...state,
   payload
 });
 
-const actionsReducer = (state = INITIAL_STATE, action) => {
+const actionsReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.ACTIONS:
       return setAction(state, action);
