@@ -1,12 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import { withStyles, Button, CircularProgress } from '@material-ui/core';
 
 // Like https://github.com/brunobertolini/styled-by
 const styledBy = (property, mapping) => props => mapping[props[property]];
 
-// Component styles
 const EsaButton = withStyles(theme => ({
   root: {
     color: theme.palette.default.contrastText,
@@ -33,7 +30,7 @@ const EsaButton = withStyles(theme => ({
   <Button
     {...rest}
     variant={variant}
-    className={classnames(className, { [classes.root]: variant === 'contained' })}
+    className={`${className} ${variant === 'contained' ? classes.root : ''}`}
   >
     {loading ? <CircularProgress size={24} color="inherit" /> : children}
   </Button>

@@ -1,9 +1,7 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { withStyles } from '@material-ui/core';
 import EsaPaper from '../EsaPaper/EsaPaper';
-// Component styles
+
 const styles = () => ({
   root: {
     display: 'flex',
@@ -11,16 +9,14 @@ const styles = () => ({
   }
 });
 
-const Portlet = props => {
-  const { classes, className, children, ...rest } = props;
-  const rootClassName = classNames(classes.root, className);
-
+const Portlet = ({ classes, className, children, ...rest }) => {
   return (
-    <EsaPaper {...rest} className={rootClassName}>
+    <EsaPaper {...rest} className={`${classes.root} ${className}`}>
       {children}
     </EsaPaper>
   );
 };
+
 Portlet.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,

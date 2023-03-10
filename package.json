@@ -5,7 +5,6 @@
   "dependencies": {
     "@material-ui/core": "4.11.4",
     "@material-ui/icons": "4.11.2",
-    "classnames": "^2.3.1",
     "json-server": "^0.16.3",
     "plotly.js": "^1.58.4",
     "prettier": "^2.2.1",

@@ -1,9 +1,6 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import { withStyles, TextField, MenuItem } from '@material-ui/core';
 
-// Component styles
 const styles = {
   formControl: {
     display: 'flex',
@@ -11,9 +8,17 @@ const styles = {
   }
 };
 
-const SingleSelect = props => {
-  const { classes, className, label, value, onChange, options, error, helperText, ...rest } = props;
-  const rootClassName = classnames(classes.formControl, className);
+const SingleSelect = ({
+  classes,
+  className,
+  label = '',
+  value = '',
+  onChange,
+  options = [],
+  error,
+  helperText,
+  ...rest
+}) => {
   return (
     <TextField
       {...rest}
@@ -22,7 +27,7 @@ const SingleSelect = props => {
       select
       label={label}
       helperText={helperText}
-      className={rootClassName}
+      className={`${classes.formControl} ${className}`}
       value={value}
       onChange={e => onChange(e.target.value)}
     >
@@ -44,12 +49,6 @@ SingleSelect.propTypes = {
   onChange: PropTypes.func,
   className: PropTypes.string,
   classes: PropTypes.object.isRequired
-};
-
-SingleSelect.defaultProps = {
-  label: '',
-  value: '',
-  options: []
 };
 
 export default withStyles(styles)(SingleSelect);

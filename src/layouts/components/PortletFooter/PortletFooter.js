@@ -1,9 +1,6 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { withStyles } from '@material-ui/core';
 
-// Component styles
 const styles = theme => ({
   root: {
     paddingBottom: theme.spacing(1),
@@ -19,19 +16,9 @@ const styles = theme => ({
   }
 });
 
-const PortletFooter = props => {
-  const { classes, className, noDivider, children, ...rest } = props;
-
-  const rootClassName = classNames(
-    {
-      [classes.root]: true,
-      [classes.noDivider]: noDivider
-    },
-    className
-  );
-
+const PortletFooter = ({ classes, className, noDivider, children, ...rest }) => {
   return (
-    <div {...rest} className={rootClassName}>
+    <div {...rest} className={`${classes.root} ${noDivider ? classes.noDivider : ''} ${className}`}>
       {children}
     </div>
   );
