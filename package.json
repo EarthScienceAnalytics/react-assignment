@@ -5,7 +5,6 @@
   "dependencies": {
     "@material-ui/core": "4.11.4",
     "@material-ui/icons": "4.11.2",
-    "classnames": "^2.3.1",
     "json-server": "^0.16.3",
     "plotly.js": "^1.58.4",
     "prettier": "^2.2.1",
@@ -14,7 +13,7 @@
     "react-plotly.js": "^2.5.1",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^5.0.1",
     "react-select": "^4.3.0",
     "redux": "^4.1.0",
     "redux-thunk": "^2.3.0",
@@ -25,7 +24,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start-server": "json-server -p 8000 --watch db.json"
+    "start-server": "json-server -p 8000 --watch db.json",
+    "clean": "rm -rf node_modules && rm package-lock.json"
   },
   "browserslist": {
     "production": [

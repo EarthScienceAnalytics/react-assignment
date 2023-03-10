@@ -1,6 +1,4 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { withStyles } from '@material-ui/core';
 
 // Component styles
@@ -27,14 +25,9 @@ const styles = theme => ({
 const PortletHeader = props => {
   const { classes, className, noDivider, noPadding, children, ...rest } = props;
 
-  const rootClassName = classNames(
-    {
-      [classes.root]: true,
-      [classes.noDivider]: noDivider,
-      [classes.noPadding]: noPadding
-    },
-    className
-  );
+  const rootClassName = `${classes.root} ${noDivider ? classes.noDivider : ''} ${
+    noPadding ? classes.noPadding : ''
+  } ${className}`;
 
   return (
     <div {...rest} className={rootClassName}>

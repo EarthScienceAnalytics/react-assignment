@@ -1,27 +1,27 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { withStyles } from '@material-ui/core';
 import { FormControl, InputLabel, Select, Input, MenuItem } from '@material-ui/core';
 
-// Component styles
-const styles = theme => {
-  return {
-    formControl: {
-      display: 'flex',
+const styles = () => ({
+  formControl: {
+    display: 'flex',
+    width: '100%'
+  }
+});
 
-      width: '100%'
-    }
-  };
-};
-
-const MultiSelect = props => {
-  const { classes, className, label, id, value, onChange, options, shrink, ...rest } = props;
-
-  const rootClassName = classNames(classes.formControl, className);
-
+const MultiSelect = ({
+  classes,
+  className,
+  label = '',
+  id = '',
+  value = [],
+  onChange,
+  options = [],
+  shrink,
+  ...rest
+}) => {
   return (
-    <FormControl {...rest} className={rootClassName}>
+    <FormControl {...rest} className={`${classes.formControl} ${className}`}>
       <InputLabel htmlFor={id} shrink={shrink}>
         {label}
       </InputLabel>
@@ -56,13 +56,6 @@ MultiSelect.propTypes = {
   onChange: PropTypes.func,
   className: PropTypes.string,
   classes: PropTypes.object.isRequired
-};
-
-MultiSelect.defaultProps = {
-  label: '',
-  id: '',
-  value: [],
-  options: []
 };
 
 export default withStyles(styles)(MultiSelect);

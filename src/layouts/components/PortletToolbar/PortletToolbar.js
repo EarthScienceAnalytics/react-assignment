@@ -1,5 +1,3 @@
-import React from 'react';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core';
 
@@ -14,10 +12,8 @@ const styles = () => ({
 const PortletToolbar = props => {
   const { classes, className, children, ...rest } = props;
 
-  const rootClassName = classNames(classes.root, className);
-
   return (
-    <div {...rest} className={rootClassName}>
+    <div {...rest} className={`${classes.root} ${className}`}>
       {children}
     </div>
   );

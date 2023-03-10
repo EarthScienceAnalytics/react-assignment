@@ -1,10 +1,7 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { withStyles } from '@material-ui/core';
 import { Paper } from '@material-ui/core';
 
-// Component styles
 const styles = theme => {
   return {
     root: {
@@ -25,14 +22,9 @@ const styles = theme => {
 const EsaPaper = props => {
   const { classes, className, outlined, squared, children, paperRef, ...rest } = props;
 
-  const rootClassName = classNames(
-    {
-      [classes.root]: true,
-      [classes.squared]: squared,
-      [classes.outlined]: outlined
-    },
-    className
-  );
+  const rootClassName = `${classes.root} ${squared ? classes.squared : ''} ${
+    outlined ? classes.outlined : ''
+  } ${className}`;
 
   return (
     <Paper {...rest} ref={paperRef} className={rootClassName}>
