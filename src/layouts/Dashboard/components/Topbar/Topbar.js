@@ -1,16 +1,17 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { Toolbar, Typography } from '@material-ui/core';
-import styles from './styles';
+
 import EsaTopNavItem from './components/NavItem/NavItem';
+import styles from './styles';
+
 const useStyles = makeStyles(styles);
 
-const Topbar = ({ title = '', ToolbarClasses, children }) => {
+export default function Topbar({ title = '', toolbarClasses, children }) {
   const classes = useStyles();
   return (
-    <div className={`${classes.root} , ${ToolbarClasses}`}>
+    <div className={`${classes.root} ${toolbarClasses}`}>
       <Toolbar className={classes.toolbar}>
         <div className={classes.brandWrapper}>
           <NavLink to="/" className={classes.logo}>
@@ -26,12 +27,10 @@ const Topbar = ({ title = '', ToolbarClasses, children }) => {
       {children}
     </div>
   );
-};
+}
 
 Topbar.propTypes = {
   children: PropTypes.node,
   title: PropTypes.string,
-  menu: PropTypes.array
+  toolbarClasses: PropTypes.string
 };
-
-export default Topbar;
