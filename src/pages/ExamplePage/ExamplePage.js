@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import Dashboard from '../layouts/Dashboard/Dashboard';
+import Dashboard from '../../layouts/Dashboard/Dashboard';
 import { Typography, makeStyles, Grid, List, ListItem, ListItemText } from '@material-ui/core';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
-import { EsaLogo } from '../components';
+import { EsaLogo } from '../../components';
 import {
   EsaPaper,
   EsaSelect,
@@ -13,58 +13,9 @@ import {
   PortletContent,
   EsaButton,
   PortletToolbar
-} from '../layouts/components';
-
-const styles = theme => ({
-  root: {
-    display: 'flex',
-    flexDirection: 'column'
-  },
-  fullHeight: { height: '100%' },
-  paper: {
-    padding: theme.spacing(3)
-  },
-  button: { marginTop: theme.spacing(3) },
-  logoContainer: {
-    height: '100%',
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    '& svg': {
-      width: '30%'
-    }
-  },
-  header: {
-    padding: theme.spacing(0, 1, 0, 2),
-    background: theme.palette.default.dark,
-    color: theme.palette.default.contrastText
-  },
-  headerLabel: {
-    '& .MuiTypography-root': {
-      fontSize: '12px',
-      fontWeight: 800
-    }
-  },
-  portletContent: {
-    height: 0,
-    minHeight: 400,
-    display: 'flex',
-    flexDirection: 'column'
-  },
-  listItem: {
-    cursor: 'pointer',
-    justifyContent: ' space-between',
-    '&.Mui-selected.haveData,&.Mui-selected.haveData:hover': {
-      backgroundColor: 'rgba(41, 150, 243, .3)'
-    },
-    '&:hover, &.Mui-selected,&.Mui-selected:hover': {
-      backgroundColor: theme.palette.default.light
-    },
-    '&::selection': { backgroundColor: 'transparent' }
-  }
-});
+} from '../../layouts/components';
+import { arrayOfTwenty, selectOptions } from './consts';
+import styles from './styles';
 
 const useStyles = makeStyles(styles);
 
@@ -100,23 +51,17 @@ export default function ExamplePage() {
                     <EsaSelect
                       label="single select"
                       value={singleValue}
-                      options={[
-                        { key: 'one', value: 1, text: 'one' },
-                        { key: 'two', value: 2, text: 'two' }
-                      ]}
-                      onChange={value => onChangeSingle(value)}
+                      options={selectOptions}
+                      onChange={onChangeSingle}
                     />
                   </Grid>
                   <Grid item xs={6}>
                     <EsaSelect
                       isMulti
-                      label="single select"
+                      label="multi select"
                       value={multiValue}
-                      options={[
-                        { key: 'one', value: 1, text: 'one' },
-                        { key: 'two', value: 2, text: 'two' }
-                      ]}
-                      onChange={value => onChangeMulti(value)}
+                      options={selectOptions}
+                      onChange={onChangeMulti}
                     />
                   </Grid>
                 </Grid>
@@ -150,18 +95,16 @@ export default function ExamplePage() {
                 </PortletHeader>
                 <PortletContent className={classes.portletContent} noPadding>
                   <List>
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20].map(
-                      option => (
-                        <ListItem
-                          key={option}
-                          className={classes.listItem}
-                          selected={isSelected(option)}
-                          onClick={() => handleSelect(option)}
-                        >
-                          <ListItemText primary={`item-${option}`} />
-                        </ListItem>
-                      )
-                    )}
+                    {arrayOfTwenty.map(option => (
+                      <ListItem
+                        key={option}
+                        className={classes.listItem}
+                        selected={isSelected(option)}
+                        onClick={() => handleSelect(option)}
+                      >
+                        <ListItemText primary={`item-${option}`} />
+                      </ListItem>
+                    ))}
                   </List>
                 </PortletContent>
               </Portlet>

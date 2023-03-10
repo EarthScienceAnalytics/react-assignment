@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import { ExamplePage, Histogram, Wellbore } from './earthnet';
+import { ExamplePage, Histogram, Wellbore } from './pages';
 
 const router = createBrowserRouter([
   {
