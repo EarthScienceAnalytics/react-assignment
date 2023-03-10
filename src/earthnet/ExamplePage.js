@@ -3,10 +3,10 @@ import Dashboard from '../layouts/Dashboard/Dashboard';
 import { Typography, makeStyles, Grid, List, ListItem, ListItemText } from '@material-ui/core';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
-import EsaLogo from '../EsaLogo';
-import EsaPaper from '../layouts/components/EsaPaper/EsaPaper';
-import EsaSelect from '../layouts/components/EsaSelect/EsaSelect';
+import { EsaLogo } from '../components';
 import {
+  EsaPaper,
+  EsaSelect,
   Portlet,
   PortletHeader,
   PortletLabel,

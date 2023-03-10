@@ -1,6 +1,4 @@
-import React from 'react';
-
-const EsaLogo = () => {
+export default function EsaLogo() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200.00348 53.26505">
       <defs>
@@ -1523,6 +1521,4 @@ const EsaLogo = () => {
       </g>
     </svg>
   );
-};
-
-export default EsaLogo;
+}
