@@ -65,6 +65,7 @@ const styles = theme => ({
     '&::selection': { backgroundColor: 'transparent' }
   }
 });
+
 const useStyles = makeStyles(styles);
 
 export default function ExamplePage() {
