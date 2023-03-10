@@ -1,1 +1,1 @@
-// redux code goes here
+// global state management code goes here
