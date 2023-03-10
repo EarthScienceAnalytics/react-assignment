@@ -25,7 +25,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start-server": "json-server -p 8000 --watch db.json"
+    "start-server": "json-server -p 8000 --watch db.json",
+    "clean": "rm -rf node_modules && rm package-lock.json"
   },
   "browserslist": {
     "production": [
