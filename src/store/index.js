@@ -1,9 +1,10 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
-import rootReducer from './reducers';
+// global state management code goes here
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+import testReducer from './testSlice';
 
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
+const rootReducer = combineReducers({ test: testReducer });
+
+const store = configureStore({ reducer: rootReducer });
 
 export default store;
