@@ -1,17 +1,22 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { Topbar } from "../../components";
+import { styled } from "@mui/material/styles";
 
-import Topbar from '../../components/Topbar/Topbar';
+const Content = styled("main")(({ theme }) => ({
+  height: "100vh",
+  padding: theme.spacing(3),
+  paddingTop: theme.spacing(9),
+  backgroundColor: theme.palette.background.default,
+  transition: theme.transitions.create("margin", {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen
+  })
+}));
 
-import styles from './styles';
-
-const useStyles = makeStyles(styles);
-
-export default function Layout({ title = '', children }) {
-  const classes = useStyles();
+export default function Layout({ title = "", children }) {
   return (
     <>
-      <Topbar title={title} toolbarClasses={classes.topbar} />
-      <main className={classes.content}>{children}</main>
+      <Topbar title={title} />
+      <Content>{children}</Content>
     </>
   );
 }

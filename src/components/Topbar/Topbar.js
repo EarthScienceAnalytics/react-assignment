@@ -1,36 +1,32 @@
-import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
-import { Toolbar, Typography } from '@material-ui/core';
+import PropTypes from "prop-types";
+import { Typography } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
-import EsaTopNavItem from './NavItem/NavItem';
-import styles from './styles';
+import NavItem from "./NavItem";
+import { AppToolbar, StyledNavLink, Container, BrandWrapper } from "./styles";
 
-const useStyles = makeStyles(styles);
-
-export default function Topbar({ title = '', toolbarClasses, children }) {
-  const classes = useStyles();
+export default function Topbar({ children, title = "" }) {
+  const theme = useTheme();
   return (
-    <div className={`${classes.root} ${toolbarClasses}`}>
-      <Toolbar className={classes.toolbar}>
-        <div className={classes.brandWrapper}>
-          <NavLink to="/" className={classes.logo}>
+    <Container>
+      <AppToolbar>
+        <BrandWrapper>
+          <StyledNavLink to="/">
             EARTH<span style={{ fontWeight: 200 }}>NET</span>
-          </NavLink>
-        </div>
-        <Typography variant="h6" color="inherit" className={classes.title}>
+          </StyledNavLink>
+        </BrandWrapper>
+        <Typography variant="h6" color="inherit" style={{ marginLeft: theme.spacing(1) }}>
           {title}
         </Typography>
-        <EsaTopNavItem to="/wellbore" title="Wellbore" />
-        <EsaTopNavItem to="/histogram" title="Histogram" />
-      </Toolbar>
+        <NavItem to="/wellbore" title="Wellbore" />
+        <NavItem to="/histogram" title="Histogram" />
+      </AppToolbar>
       {children}
-    </div>
+    </Container>
   );
 }
 
 Topbar.propTypes = {
   children: PropTypes.node,
-  title: PropTypes.string,
-  toolbarClasses: PropTypes.string
+  title: PropTypes.string
 };

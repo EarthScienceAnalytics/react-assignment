@@ -1,6 +1,6 @@
-import { Typography } from '@material-ui/core';
+import { Typography } from "@material-ui/core";
 
-import { Layout } from '../layouts';
+import { Layout } from "../layouts";
 
 export default function Histogram() {
   return (

@@ -1,28 +1,15 @@
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core';
+import { Box } from "@mui/material";
+import PropTypes from "prop-types";
 
-const styles = () => ({
-  root: {
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    display: 'flex'
-  }
-});
-
-const PortletToolbar = props => {
-  const { classes, className, children, ...rest } = props;
-
+export default function PortletToolbar({ className, children }) {
   return (
-    <div {...rest} className={`${classes.root} ${className}`}>
+    <Box className={className} display="flex" alignItems="center" justifyContent="flex-end">
       {children}
-    </div>
+    </Box>
   );
-};
+}
 
 PortletToolbar.propTypes = {
   children: PropTypes.node,
-  className: PropTypes.string,
-  classes: PropTypes.object.isRequired
+  className: PropTypes.string
 };
-
-export default withStyles(styles)(PortletToolbar);

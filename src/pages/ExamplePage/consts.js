@@ -1,6 +1,6 @@
 const selectOptions = [
-  { key: 'one', value: 1, text: 'one' },
-  { key: 'two', value: 2, text: 'two' }
+  { key: "one", value: 1, text: "one" },
+  { key: "two", value: 2, text: "two" }
 ];
 
 const arrayOfTwenty = Array(20)

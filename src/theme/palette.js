@@ -1,20 +1,21 @@
-import { red, blue, yellow, green } from '@material-ui/core/colors';
-const white = '#fff';
-const black = '#000';
+import { red, blue, yellow, green } from "@mui/material/colors";
+
+const white = "#fff";
+const black = "#000";
 
 export default {
   common: {
     black,
     white,
     commonBackground: white,
-    contrastText: black
+    contrastText: black,
+    border: "rgba(0, 40, 73, .1)"
   },
   default: {
-    light: 'rgba(41, 150, 243, .1)',
-    main: 'rgba(0, 40, 73, .9)',
-    dark: 'rgb(0, 40, 73)',
-    logoBg: 'rgb(51, 51, 51)',
-    border: 'rgba(0, 40, 73, .1)',
+    light: "rgba(41, 150, 243, .1)",
+    main: "rgba(0, 40, 73, .9)",
+    dark: "rgb(0, 40, 73)",
+    logoBg: "rgb(51, 51, 51)",
     contrastText: white
   },
   success: {

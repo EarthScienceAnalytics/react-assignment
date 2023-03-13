@@ -1,26 +1,15 @@
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core';
-import EsaPaper from '../EsaPaper/EsaPaper';
+import PropTypes from "prop-types";
+import EsaPaper from "../EsaPaper/EsaPaper";
 
-const styles = () => ({
-  root: {
-    display: 'flex',
-    flexDirection: 'column'
-  }
-});
-
-const Portlet = ({ classes, className, children, ...rest }) => {
+export default function Portlet({ classes, className, children, ...rest }) {
   return (
-    <EsaPaper {...rest} className={`${classes.root} ${className}`}>
+    <EsaPaper className={className} style={{ display: "flex", flexDirection: "column" }} {...rest}>
       {children}
     </EsaPaper>
   );
-};
+}
 
 Portlet.propTypes = {
   children: PropTypes.node,
-  className: PropTypes.string,
-  classes: PropTypes.object.isRequired
+  className: PropTypes.string
 };
-
-export default withStyles(styles)(Portlet);

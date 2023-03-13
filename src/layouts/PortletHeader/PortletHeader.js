@@ -1,47 +1,31 @@
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core';
+import PropTypes from "prop-types";
+import { styled } from "@mui/material/styles";
 
-// Component styles
-const styles = theme => ({
-  root: {
-    alignItems: 'center',
-    borderBottom: `1px solid ${theme.palette.default.border}`,
-    borderTopLeftRadius: '2px',
-    borderTopRightRadius: '2px',
-    display: 'flex',
-    height: '40px',
-    justifyContent: 'space-between',
-    padding: theme.spacing(1, 3),
-    position: 'relative'
-  },
-  noDivider: {
-    borderBottom: 'none'
-  },
-  noPadding: {
-    padding: 0
-  }
-});
+const Container = styled("div")(({ theme, noDivider, noPadding }) => ({
+  alignItems: "center",
+  borderBottom: `1px solid ${theme.palette.common.border}`,
+  borderTopLeftRadius: "2px",
+  borderTopRightRadius: "2px",
+  display: "flex",
+  height: "40px",
+  justifyContent: "space-between",
+  padding: theme.spacing(1, 3),
+  position: "relative",
+  borderBottom: noDivider && "none",
+  padding: noPadding && 0
+}));
 
-const PortletHeader = props => {
-  const { classes, className, noDivider, noPadding, children, ...rest } = props;
-
-  const rootClassName = `${classes.root} ${noDivider ? classes.noDivider : ''} ${
-    noPadding ? classes.noPadding : ''
-  } ${className}`;
-
+export default function PortletHeader({ className, noDivider, noPadding, children }) {
   return (
-    <div {...rest} className={rootClassName}>
+    <Container className={className} noPadding={noPadding} noDivider={noDivider}>
       {children}
-    </div>
+    </Container>
   );
-};
+}
 
 PortletHeader.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  classes: PropTypes.object.isRequired,
   noDivider: PropTypes.bool,
   noPadding: PropTypes.bool
 };
-
-export default withStyles(styles)(PortletHeader);

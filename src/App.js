@@ -1,15 +1,18 @@
-import { RouterProvider } from 'react-router-dom';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { RouterProvider } from "react-router-dom";
+import { ThemeProvider } from "@emotion/react";
+import { CssBaseline } from "@mui/material";
+import { StyledEngineProvider } from "@mui/material/styles";
 
-import theme from './theme';
-import router from './router';
+import theme from "./theme";
+import router from "./router";
 
 export default function App() {
   return (
-    <MuiThemeProvider theme={createMuiTheme(theme)}>
-      <CssBaseline />
-      <RouterProvider router={router} />
-    </MuiThemeProvider>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
 }

@@ -1,51 +1,46 @@
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core';
-import { Paper } from '@material-ui/core';
+import PropTypes from "prop-types";
+import { Paper } from "@mui/material";
+import { styled } from "@mui/material/styles";
 
-const styles = theme => {
+// https://maximeblanc.fr/blog/how-to-fix-the-received-true-for-a-non-boolean-attribute-error/
+
+const squaredStyles = { borderRadius: 0 };
+
+const StyledPaper = styled(Paper)(({ theme, squared, outlined }) => {
   return {
-    root: {
-      borderRadius: '4px',
-      maxWidth: '100%',
-      border: 0,
-      boxShadow: '0 10px 40px 0 rgba(16, 36, 94, 0.2)'
-    },
-    squared: {
-      borderRadius: 0
-    },
-    outlined: {
-      border: `1px solid ${theme.palette.border}`
-    }
+    borderRadius: "4px",
+    maxWidth: "100%",
+    border: 0,
+    boxShadow: "0 10px 40px 0 rgba(16, 36, 94, 0.2)",
+    ...(squared ? squaredStyles : {}),
+    border: outlined ? `1px solid ${theme.palette.border}` : 0
   };
-};
+});
 
-const EsaPaper = props => {
-  const { classes, className, outlined, squared, children, paperRef, ...rest } = props;
-
-  const rootClassName = `${classes.root} ${squared ? classes.squared : ''} ${
-    outlined ? classes.outlined : ''
-  } ${className}`;
-
+export default function EsaPaper({
+  className,
+  outlined = false,
+  squared = false,
+  children,
+  paperRef,
+  ...rest
+}) {
   return (
-    <Paper {...rest} ref={paperRef} className={rootClassName}>
+    <StyledPaper
+      squared={+squared}
+      outlined={+outlined}
+      ref={paperRef}
+      className={className}
+      {...rest}
+    >
       {children}
-    </Paper>
+    </StyledPaper>
   );
-};
+}
 
 EsaPaper.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  classes: PropTypes.object.isRequired,
-  elevation: PropTypes.number,
   outlined: PropTypes.bool,
   squared: PropTypes.bool
 };
-
-EsaPaper.defaultProps = {
-  squared: false,
-  outlined: false,
-  elevation: 0
-};
-
-export default withStyles(styles)(EsaPaper);
