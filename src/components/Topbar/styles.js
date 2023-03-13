@@ -30,7 +30,6 @@ export default theme => ({
     fontSize: '22px',
     fontWeight: 700,
     letterSpacing: 3,
-    // fill: theme.palette.common.white,
     color: theme.palette.common.white,
     textDecoration: 'none'
   },

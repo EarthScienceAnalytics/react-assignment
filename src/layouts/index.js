@@ -9,3 +9,4 @@ export { default as SingleSelect } from './EsaSelect/SingleSelect';
 export { default as MultiSelect } from './EsaSelect/MultiSelect';
 export { default as EsaSelect } from './EsaSelect/EsaSelect';
 export { default as EsaButton } from './EsaButton/EsaButton';
+export { default as Layout } from './Layout/Layout';

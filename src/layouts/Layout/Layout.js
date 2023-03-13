@@ -1,11 +1,12 @@
 import { makeStyles } from '@material-ui/core/styles';
-import Topbar from './components/Topbar/Topbar';
+
+import Topbar from '../../components/Topbar/Topbar';
 
 import styles from './styles';
 
 const useStyles = makeStyles(styles);
 
-export default function Dashboard({ title = '', children }) {
+export default function Layout({ title = '', children }) {
   const classes = useStyles();
   return (
     <>

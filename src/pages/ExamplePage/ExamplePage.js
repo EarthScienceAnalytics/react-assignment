@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Dashboard from '../../layouts/Dashboard/Dashboard';
 import { Typography, makeStyles, Grid, List, ListItem, ListItemText } from '@material-ui/core';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
@@ -12,8 +11,9 @@ import {
   PortletLabel,
   PortletContent,
   EsaButton,
-  PortletToolbar
-} from '../../layouts/components';
+  PortletToolbar,
+  Layout
+} from '../../layouts';
 import { arrayOfTwenty, selectOptions } from './consts';
 import styles from './styles';
 
@@ -21,8 +21,8 @@ const useStyles = makeStyles(styles);
 
 export default function ExamplePage() {
   const classes = useStyles();
-  const [singleValue, onChangeSingle] = useState(1);
-  const [multiValue, onChangeMulti] = useState([]);
+  const [singleValue, setSingleValue] = useState(1);
+  const [multiValue, setMultiValue] = useState([]);
   const [selectedOptions, setSelect] = useState([]);
 
   const handleSelect = value => {
@@ -39,7 +39,7 @@ export default function ExamplePage() {
   const isSelected = value => selectedOptions.includes(value);
 
   return (
-    <Dashboard>
+    <Layout>
       <Grid container spacing={1} className={classes.fullHeight}>
         <Grid item xs={12} md={5} container spacing={2}>
           <Grid item xs={12} container>
@@ -52,7 +52,7 @@ export default function ExamplePage() {
                       label="single select"
                       value={singleValue}
                       options={selectOptions}
-                      onChange={onChangeSingle}
+                      onChange={setSingleValue}
                     />
                   </Grid>
                   <Grid item xs={6}>
@@ -61,7 +61,7 @@ export default function ExamplePage() {
                       label="multi select"
                       value={multiValue}
                       options={selectOptions}
-                      onChange={onChangeMulti}
+                      onChange={setMultiValue}
                     />
                   </Grid>
                 </Grid>
@@ -117,6 +117,6 @@ export default function ExamplePage() {
           </div>
         </Grid>
       </Grid>
-    </Dashboard>
+    </Layout>
   );
 }

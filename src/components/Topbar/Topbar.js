@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { Toolbar, Typography } from '@material-ui/core';
 
-import EsaTopNavItem from './components/NavItem/NavItem';
+import EsaTopNavItem from './NavItem/NavItem';
 import styles from './styles';
 
 const useStyles = makeStyles(styles);
