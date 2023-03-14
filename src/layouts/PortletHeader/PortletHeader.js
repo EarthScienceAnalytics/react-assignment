@@ -11,8 +11,8 @@ const Container = styled("div")(({ theme, noDivider, noPadding }) => ({
   justifyContent: "space-between",
   padding: theme.spacing(1, 3),
   position: "relative",
-  borderBottom: noDivider && "none",
-  padding: noPadding && 0
+  ...(noDivider ? { borderBottom: "none" } : {}),
+  ...(noPadding ? { padding: 0 } : {})
 }));
 
 export default function PortletHeader({ className, noDivider, noPadding, children }) {

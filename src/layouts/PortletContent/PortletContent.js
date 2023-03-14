@@ -1,8 +1,6 @@
 import PropTypes from "prop-types";
 import { styled } from "@mui/material/styles";
 
-const noPaddingStyles = { padding: 0 };
-
 const Container = styled("div")(({ theme, noPadding }) => ({
   paddingLeft: theme.spacing(3),
   paddingRight: theme.spacing(3),
@@ -10,7 +8,7 @@ const Container = styled("div")(({ theme, noPadding }) => ({
   paddingBottom: theme.spacing(2),
   flexGrow: 1,
   overflowY: "auto",
-  ...(noPadding ? noPaddingStyles : {})
+  ...(noPadding ? { padding: 0 } : {})
 }));
 
 export default function PortletContent({

@@ -4,15 +4,13 @@ import { styled } from "@mui/material/styles";
 
 // https://maximeblanc.fr/blog/how-to-fix-the-received-true-for-a-non-boolean-attribute-error/
 
-const squaredStyles = { borderRadius: 0 };
-
 const StyledPaper = styled(Paper)(({ theme, squared, outlined }) => {
   return {
     borderRadius: "4px",
     maxWidth: "100%",
     border: 0,
     boxShadow: "0 10px 40px 0 rgba(16, 36, 94, 0.2)",
-    ...(squared ? squaredStyles : {}),
+    ...(squared ? { borderRadius: 0 } : {}),
     border: outlined ? `1px solid ${theme.palette.border}` : 0
   };
 });
