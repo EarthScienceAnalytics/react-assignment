@@ -3,7 +3,7 @@ import { styled } from "@mui/material/styles";
 
 const Container = styled("div")(({ theme, noDivider, noPadding }) => ({
   alignItems: "center",
-  borderBottom: `1px solid ${theme.palette.common.border}`,
+  borderBottom: `1px solid ${theme.palette.default.border}`,
   borderTopLeftRadius: "2px",
   borderTopRightRadius: "2px",
   display: "flex",

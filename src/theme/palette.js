@@ -8,15 +8,15 @@ export default {
     black,
     white,
     commonBackground: white,
-    contrastText: black,
-    border: "rgba(0, 40, 73, .1)"
+    contrastText: black
   },
   default: {
     light: "rgba(41, 150, 243, .1)",
     main: "rgba(0, 40, 73, .9)",
     dark: "rgb(0, 40, 73)",
     logoBg: "rgb(51, 51, 51)",
-    contrastText: white
+    contrastText: white,
+    border: "rgba(0, 40, 73, .1)"
   },
   success: {
     light: green[300],
