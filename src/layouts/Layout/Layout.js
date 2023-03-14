@@ -1,5 +1,6 @@
-import { Topbar } from "../../components";
 import { styled } from "@mui/material/styles";
+
+import { Topbar } from "../../components";
 
 const Content = styled("main")(({ theme }) => ({
   height: "100vh",
