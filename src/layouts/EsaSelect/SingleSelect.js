@@ -1,24 +1,16 @@
-import PropTypes from 'prop-types';
-import { withStyles, TextField, MenuItem } from '@material-ui/core';
+import PropTypes from "prop-types";
+import { TextField, MenuItem } from "@mui/material";
 
-const styles = {
-  formControl: {
-    display: 'flex',
-    width: '100%'
-  }
-};
-
-const SingleSelect = ({
-  classes,
+export default function SingleSelect({
   className,
-  label = '',
-  value = '',
+  label = "",
+  value = "",
   onChange,
   options = [],
   error,
   helperText,
   ...rest
-}) => {
+}) {
   return (
     <TextField
       {...rest}
@@ -27,9 +19,10 @@ const SingleSelect = ({
       select
       label={label}
       helperText={helperText}
-      className={`${classes.formControl} ${className}`}
+      className={className}
       value={value}
       onChange={e => onChange(e.target.value)}
+      style={{ display: "flex", width: "100%" }}
     >
       {options.map(type => (
         <MenuItem key={type.key} value={type.value}>
@@ -38,7 +31,7 @@ const SingleSelect = ({
       ))}
     </TextField>
   );
-};
+}
 
 SingleSelect.propTypes = {
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
@@ -47,8 +40,5 @@ SingleSelect.propTypes = {
   error: PropTypes.bool,
   helperText: PropTypes.string,
   onChange: PropTypes.func,
-  className: PropTypes.string,
-  classes: PropTypes.object.isRequired
+  className: PropTypes.string
 };
-
-export default withStyles(styles)(SingleSelect);

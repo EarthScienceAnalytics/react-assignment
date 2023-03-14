@@ -1,27 +1,18 @@
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core';
-import { FormControl, InputLabel, Select, Input, MenuItem } from '@material-ui/core';
+import PropTypes from "prop-types";
+import { FormControl, InputLabel, Select, Input, MenuItem } from "@mui/material";
 
-const styles = () => ({
-  formControl: {
-    display: 'flex',
-    width: '100%'
-  }
-});
-
-const MultiSelect = ({
-  classes,
+export default function MultiSelect({
   className,
-  label = '',
-  id = '',
+  label = "",
+  id = "",
   value = [],
   onChange,
   options = [],
   shrink,
   ...rest
-}) => {
+}) {
   return (
-    <FormControl {...rest} className={`${classes.formControl} ${className}`}>
+    <FormControl {...rest} className={className} style={{ display: "flex", width: "100%" }}>
       <InputLabel htmlFor={id} shrink={shrink}>
         {label}
       </InputLabel>
@@ -34,18 +25,18 @@ const MultiSelect = ({
           options
             .filter(type => selected.includes(type.value))
             .map(type => type.text)
-            .join(', ')
+            .join(", ")
         }
       >
         {options.map((type, index) => (
-          <MenuItem key={type.text + '-' + index} value={type.value}>
+          <MenuItem key={type.text + "-" + index} value={type.value}>
             {type.text}
           </MenuItem>
         ))}
       </Select>
     </FormControl>
   );
-};
+}
 
 MultiSelect.propTypes = {
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
@@ -54,8 +45,5 @@ MultiSelect.propTypes = {
   options: PropTypes.array,
   shrink: PropTypes.bool,
   onChange: PropTypes.func,
-  className: PropTypes.string,
-  classes: PropTypes.object.isRequired
+  className: PropTypes.string
 };
-
-export default withStyles(styles)(MultiSelect);

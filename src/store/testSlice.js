@@ -1,7 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const slice = createSlice({
-  name: 'test',
+  name: "test",
   initialState: {},
   reducers: {}
 });

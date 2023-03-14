@@ -1,19 +1,19 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter } from "react-router-dom";
 
-import { ExamplePage, Histogram, Wellbore } from './pages';
+import { ExamplePage, Histogram, Wellbore } from "./pages";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <ExamplePage />,
     index: true
   },
   {
-    path: '/wellbore',
+    path: "/wellbore",
     element: <Wellbore />
   },
   {
-    path: '/histogram',
+    path: "/histogram",
     element: <Histogram />
   }
 ]);

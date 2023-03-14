@@ -19,8 +19,8 @@ To run the project locally,
 1. Git clone this repository
    `git clone https://github.com/EarthScienceAnalytics/react-assignment.git`
 2. Ensure you've installed node & npm to download the dependencies. The project has been tested with the following versions but should also work with later ones.
-   - node: v12.22.1
-   - npm: 7.6.2
+   - node: v16.x and above
+   - npm: 9.x and above
 3. It is recommended to use Npm for downloading all the dependencies. Yarn would do the job too. Perform the following commands inside your project folder (directory where the package.json is located)
    `npm install` or `yarn install`
 4. Once the dependencies are downloaded, you can run the fake json server by `npm run start-server`. This should run the application on port 8000.

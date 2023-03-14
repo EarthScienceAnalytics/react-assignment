@@ -1,58 +1,56 @@
-import { useState } from 'react';
-import Dashboard from '../../layouts/Dashboard/Dashboard';
-import { Typography, makeStyles, Grid, List, ListItem, ListItemText } from '@material-ui/core';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { useState } from "react";
+import { Typography, Grid, List, ListItemText } from "@mui/material";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { useTheme } from "@mui/material/styles";
 
-import { EsaLogo } from '../../components';
+import { EsaLogo } from "../../components";
 import {
   EsaPaper,
   EsaSelect,
   Portlet,
-  PortletHeader,
   PortletLabel,
   PortletContent,
   EsaButton,
-  PortletToolbar
-} from '../../layouts/components';
-import { arrayOfTwenty, selectOptions } from './consts';
-import styles from './styles';
-
-const useStyles = makeStyles(styles);
+  PortletToolbar,
+  Layout
+} from "../../layouts";
+import { arrayOfTwenty, selectOptions } from "./consts";
+import { StyledPortletHeader, StyledPortletContent, LogoContainer, StyledListItem } from "./styles";
 
 export default function ExamplePage() {
-  const classes = useStyles();
-  const [singleValue, onChangeSingle] = useState(1);
-  const [multiValue, onChangeMulti] = useState([]);
+  const theme = useTheme();
+
+  const [singleValue, setSingleValue] = useState(1);
+  const [multiValue, setMultiValue] = useState([]);
   const [selectedOptions, setSelect] = useState([]);
 
-  const handleSelect = value => {
+  const handleListItemClick = value => {
     const currentIndex = selectedOptions.indexOf(value);
+
     const newSelectedOptions = [...selectedOptions];
-    if (currentIndex === -1) {
-      newSelectedOptions.push(value);
-    } else {
-      newSelectedOptions.splice(currentIndex, 1);
-    }
+    if (currentIndex === -1) newSelectedOptions.push(value);
+    else newSelectedOptions.splice(currentIndex, 1);
+
     setSelect(newSelectedOptions);
   };
 
   const isSelected = value => selectedOptions.includes(value);
 
   return (
-    <Dashboard>
-      <Grid container spacing={1} className={classes.fullHeight}>
+    <Layout>
+      <Grid container spacing={1} style={{ height: "100%" }}>
         <Grid item xs={12} md={5} container spacing={2}>
           <Grid item xs={12} container>
             <Grid item xs={12}>
               <Typography variant="body1">* Usage of Paper</Typography>
-              <EsaPaper className={classes.paper}>
+              <EsaPaper style={{ padding: theme.spacing(3) }}>
                 <Grid container spacing={3}>
                   <Grid item xs={6}>
                     <EsaSelect
                       label="single select"
                       value={singleValue}
                       options={selectOptions}
-                      onChange={onChangeSingle}
+                      onChange={setSingleValue}
                     />
                   </Grid>
                   <Grid item xs={6}>
@@ -61,7 +59,7 @@ export default function ExamplePage() {
                       label="multi select"
                       value={multiValue}
                       options={selectOptions}
-                      onChange={onChangeMulti}
+                      onChange={setMultiValue}
                     />
                   </Grid>
                 </Grid>
@@ -74,12 +72,12 @@ export default function ExamplePage() {
             </Grid>
             <Grid item xs={5}>
               <Portlet>
-                <PortletHeader>
+                <StyledPortletHeader>
                   <PortletLabel title="Title" />
-                </PortletHeader>
+                </StyledPortletHeader>
                 <PortletContent>
                   Portlet Content:
-                  <EsaButton fullWidth className={classes.button}>
+                  <EsaButton fullWidth style={{ marginTop: theme.spacing(3) }}>
                     Click me
                   </EsaButton>
                 </PortletContent>
@@ -87,36 +85,35 @@ export default function ExamplePage() {
             </Grid>
             <Grid item xs={7}>
               <Portlet>
-                <PortletHeader className={classes.header}>
+                <StyledPortletHeader>
                   <PortletLabel title="Title" />
                   <PortletToolbar>
                     <MoreVertIcon />
                   </PortletToolbar>
-                </PortletHeader>
-                <PortletContent className={classes.portletContent} noPadding>
+                </StyledPortletHeader>
+                <StyledPortletContent noPadding>
                   <List>
                     {arrayOfTwenty.map(option => (
-                      <ListItem
+                      <StyledListItem
                         key={option}
-                        className={classes.listItem}
                         selected={isSelected(option)}
-                        onClick={() => handleSelect(option)}
+                        onClick={() => handleListItemClick(option)}
                       >
                         <ListItemText primary={`item-${option}`} />
-                      </ListItem>
+                      </StyledListItem>
                     ))}
                   </List>
-                </PortletContent>
+                </StyledPortletContent>
               </Portlet>
             </Grid>
           </Grid>
         </Grid>
         <Grid item xs={12} md={7}>
-          <div className={classes.logoContainer}>
+          <LogoContainer>
             <EsaLogo />
-          </div>
+          </LogoContainer>
         </Grid>
       </Grid>
-    </Dashboard>
+    </Layout>
   );
 }
