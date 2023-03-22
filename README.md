@@ -73,7 +73,7 @@ The Histogram Page Layout:
 ### Technical Requirements
 
 - Must be a Single Page Application(SPA)
-- Data should be stored and retrieved from `Redux`. The app currently provides the traditional redux boilerplate (actions, types, reducers but you are highly encouraged to use the modern approach with slices using `redux-toolkit`.
+- Data should be stored and retrieved from `Redux`, using the modern approach with slices with `redux-toolkit`.
 - Plots should be implemented using [Plotly](https://plot.ly/javascript/react/)
 
 Here is the documentation for the API (db.json):
